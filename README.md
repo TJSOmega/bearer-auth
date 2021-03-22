@@ -3,7 +3,7 @@
 ## Developer: TJ Simms
 
 ### Links and Resources:
-- Heroku Server : Needs to be added
+- Heroku Server : https://bearer-auth-ts.herokuapp.com/
 
 - Route Testing: [Swagger.io](https://inspector.swagger.io/builder)
 

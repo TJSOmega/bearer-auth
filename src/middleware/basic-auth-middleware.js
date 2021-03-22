@@ -2,7 +2,7 @@
 
 const base64 = require('base-64');
 
-const users = require('./users.js');
+const users = require('../users.js');
 
 module.exports = (req, res, next) => {
 
@@ -20,8 +20,12 @@ module.exports = (req, res, next) => {
   users.authenticateBasic(user, pass)
     .then(validUser => {
       req.user = validUser;
+      console.log(`++++++++++++++ ${validUser} +++++++++++++++++`)
       next();
     })
-    .catch(err => next('Invalid Login'));
+    .catch(err => res.status(403).json({
+      status: 403,
+      message: 'invalid login'
+    }));
 
 }

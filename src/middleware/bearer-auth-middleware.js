@@ -1,6 +1,6 @@
 'use strict';
 
-const users = require('./users.js');
+const users = require('../users.js');
 
 module.exports = (req, res, next) => {
 
@@ -17,6 +17,8 @@ module.exports = (req, res, next) => {
       req.user = validUser;
       next();
     })
-    .catch(err => next('Invalid Login'));
-
+    .catch(err => res.status(403).json({
+      status: 403,
+      message: 'invalid token'
+    }));
 }
